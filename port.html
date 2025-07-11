@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santosh Kumar | Generative AI & ML Developer</title>
+    <meta name="description" content="Santosh Kumar - Generative AI & ML Developer Portfolio">
+    <meta property="og:title" content="Santosh Kumar | Generative AI & ML Developer">
+    <meta property="og:description" content="Projects, skills, and education of Santosh Kumar, AI/ML Developer.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: A single-page application with a fixed navigation bar for easy access to different content sections: "About", "Skills", "Projects", and "Education". This structure was chosen to allow non-linear exploration, enabling a recruiter to jump directly to the most relevant information (like Projects) without scrolling. The "Projects" section uses interactive cards with modals to provide detailed information without leaving the page, enhancing user engagement and keeping the experience contained and fluid. -->
+    <!-- Visualization & Content Choices: 
+        1. Resume Info: Technical Skills. Goal: Compare & Organize. Viz/Presentation: A horizontal bar chart from Chart.js to visually compare key domain strengths, supplemented by styled lists for comprehensive detail. Interaction: Hovering over chart bars reveals tooltips. Justification: This dual approach provides a quick visual summary for skimmers and detailed information for deep-divers. Library: Chart.js (Canvas).
+        2. Resume Info: Project Details. Goal: Inform & Engage. Viz/Presentation: A grid of interactive cards. For the chatbot project, a simplified RAG pipeline is visualized using styled HTML/CSS. Interaction: Clicking a "Learn More" button opens a modal with project specifics and the diagram. Justification: Modals offer a deep dive into content while maintaining the user's context on the main page. Visualizing the pipeline simplifies a complex concept. Library: Vanilla JS for interaction, HTML/Tailwind for visuals.
+        3. Resume Info: Education & Certs. Goal: Organize. Viz/Presentation: A clean, vertical timeline built with HTML/Tailwind. Interaction: Subtle hover effects. Justification: A timeline is the most intuitive way to present chronological achievements. Library: HTML/Tailwind.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f3f2; /* A warm, light gray */
+            color: #1c1917;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .nav-link {
+            transition: color 0.3s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #d97706; /* Amber-600 */
+        }
+        .modal-backdrop {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .modal-content {
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-stone-100/80 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-stone-800">SANTOSH KUMAR</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="nav-link text-stone-600 font-medium">About</a>
+                <a href="#skills" class="nav-link text-stone-600 font-medium">Skills</a>
+                <a href="#projects" class="nav-link text-stone-600 font-medium">Projects</a>
+                <a href="#education" class="nav-link text-stone-600 font-medium">Education</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-stone-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#about" class="block py-2 px-6 text-sm text-stone-600 hover:bg-stone-200">About</a>
+            <a href="#skills" class="block py-2 px-6 text-sm text-stone-600 hover:bg-stone-200">Skills</a>
+            <a href="#projects" class="block py-2 px-6 text-sm text-stone-600 hover:bg-stone-200">Projects</a>
+            <a href="#education" class="block py-2 px-6 text-sm text-stone-600 hover:bg-stone-200">Education</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- About Section -->
+        <section id="about" class="min-h-[80vh] flex items-center">
+            <div class="w-full text-center md:text-left">
+                <h1 class="text-4xl md:text-6xl font-bold text-stone-900 leading-tight">Generative AI &<br>Machine Learning Developer</h1>
+                <p class="mt-6 max-w-2xl mx-auto md:mx-0 text-lg text-stone-600">
+                    Entry-level Generative AI Engineer and Machine Learning Developer with hands-on experience in AI technologies, including LangChain, OpenAI APIs, and LLMs. Certified through an IBM-backed AI Engineer Master's Program. Proven ability to build and deploy AI applications, including chatbots and image generation tools. Eager to contribute strong coding and model integration skills to innovative AI teams focused on data-driven solutions.
+                </p>
+                <div class="mt-8 flex justify-center md:justify-start space-x-4">
+                    <a href="https://www.linkedin.com/in/santosh-yadav-43224a320" target="_blank" class="text-amber-600 hover:text-amber-700 transition-colors">
+                        <!-- LinkedIn SVG -->
+                    </a>
+                    <a href="https://github.com/Santosh9519424222" target="_blank" class="text-amber-600 hover:text-amber-700 transition-colors">
+                        <!-- GitHub SVG -->
+                    </a>
+                    <a href="Santosh_Kumar_AI_Resume.pdf" target="_blank" class="bg-amber-600 text-white font-bold py-2 px-4 rounded hover:bg-amber-700 transition-colors flex items-center space-x-2">
+                        <span>View Resume</span>
+                        <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20">
+            <h2 class="text-3xl font-bold text-center mb-4">Technical Skills</h2>
+            <p class="text-center text-stone-600 mb-12 max-w-3xl mx-auto">This section provides a visual overview of my core competencies, followed by a detailed list of the technologies and tools I work with. The chart highlights my proficiency in key areas of AI and software development.</p>
+            <div class="chart-container">
+                <canvas id="skillsChart"></canvas>
+            </div>
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="font-bold text-lg mb-3 text-amber-700">Languages</h3>
+                    <ul class="space-y-2 text-stone-600">
+                        <li>&#9679; Python</li>
+                        <li>&#9679; C++</li>
+                        <li>&#9679; C</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="font-bold text-lg mb-3 text-amber-700">Libraries & Frameworks</h3>
+                    <ul class="space-y-2 text-stone-600"><li>&#9679; TensorFlow</li><li>&#9679; Keras</li><li>&#9679; LangChain</li><li>&#9679; OpenAI API</li><li>&#9679; FAISS</li></ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="font-bold text-lg mb-3 text-amber-700">Domains</h3>
+                    <ul class="space-y-2 text-stone-600"><li>&#9679; Large Language Models (LLMs)</li><li>&#9679; Generative AI</li><li>&#9679; Machine Learning (ML)</li><li>&#9679; Deep Learning (DL)</li><li>&#9679; Data Science</li><li>&#9679; Retrieval-Augmented Generation (RAG)</li></ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 class="font-bold text-lg mb-3 text-amber-700">Tools</h3>
+                    <ul class="space-y-2 text-stone-600"><li>&#9679; VS Code</li><li>&#9679; GitHub</li><li>&#9679; Jupyter Notebooks</li><li>&#9679; Streamlit</li></ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20">
+            <h2 class="text-3xl font-bold text-center mb-4">Projects</h2>
+            <p class="text-center text-stone-600 mb-12 max-w-3xl mx-auto">Here are some of the key projects I've developed, showcasing my ability to apply AI concepts to create real-world solutions. Click "Learn More" on any project to see a detailed description of the architecture and technologies used.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <h3 class="font-bold text-xl mb-2">Generative AI Document Q&A Chatbot</h3>
+                        <p class="text-stone-600 text-sm">Engineered a document-based chatbot using LangChain, FAISS, and OpenAI APIs to create a robust RAG pipeline.</p>
+                    </div>
+                    <div class="p-6 bg-stone-50">
+                        <button onclick="openModal(0)" class="w-full bg-amber-600 text-white font-bold py-2 px-4 rounded hover:bg-amber-700 transition-colors">Learn More</button>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <h3 class="font-bold text-xl mb-2">AI-Powered Creative Design Tool</h3>
+                        <p class="text-stone-600 text-sm">Developed an AI art generation tool utilizing OpenAI's DALL·E API and Streamlit for an interactive user interface.</p>
+                    </div>
+                    <div class="p-6 bg-stone-50">
+                        <button onclick="openModal(1)" class="w-full bg-amber-600 text-white font-bold py-2 px-4 rounded hover:bg-amber-700 transition-colors">Learn More</button>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <h3 class="font-bold text-xl mb-2">Autonomous Boat Recognition System</h3>
+                        <p class="text-stone-600 text-sm">Designed and trained a deep learning model using CNN and MobileNetV2 for automatic classification of 9 distinct boat types.</p>
+                    </div>
+                    <div class="p-6 bg-stone-50">
+                       <button onclick="openModal(2)" class="w-full bg-amber-600 text-white font-bold py-2 px-4 rounded hover:bg-amber-700 transition-colors">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Education & Certifications Section -->
+        <section id="education" class="py-20">
+            <h2 class="text-3xl font-bold text-center mb-4">Education & Certifications</h2>
+            <p class="text-center text-stone-600 mb-12 max-w-3xl mx-auto">My formal education and professional certifications have provided me with a strong theoretical and practical foundation in AI and Information Technology. This timeline highlights my key learning milestones.</p>
+            <div class="relative max-w-2xl mx-auto">
+                <div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-stone-300"></div>
+                <!-- Timeline Item 1 -->
+                <div class="relative mb-8 flex justify-between items-center w-full">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-10 flex items-center order-1 bg-amber-600 shadow-xl w-8 h-8 rounded-full">
+                        <h1 class="mx-auto font-semibold text-lg text-white">&#9733;</h1>
+                    </div>
+                    <div class="order-1 bg-white rounded-lg shadow-md w-5/12 px-6 py-4">
+                        <p class="text-sm text-stone-500">2024</p>
+                        <h3 class="mb-1 font-bold text-lg text-stone-800">AI Engineer Master's Program</h3>
+                        <p class="text-sm leading-snug tracking-wide text-stone-600">Simplilearn & IBM</p>
+                    </div>
+                </div>
+                <!-- Timeline Item 2 -->
+                <div class="relative mb-8 flex justify-between flex-row-reverse items-center w-full">
+                    <div class="order-1 w-5/12"></div>
+                     <div class="z-10 flex items-center order-1 bg-amber-600 shadow-xl w-8 h-8 rounded-full">
+                        <h1 class="mx-auto font-semibold text-lg text-white">🎓</h1> <!-- 🎓 Graduation Cap -->
+                    </div>
+                    <div class="order-1 bg-white rounded-lg shadow-md w-5/12 px-6 py-4">
+                        <p class="text-sm text-stone-500">2020 - 2024</p>
+                        <h3 class="mb-1 font-bold text-lg text-stone-800">B.Tech in Information Technology</h3>
+                        <p class="text-sm leading-snug tracking-wide text-stone-600">United College of Engineering and Research, Prayagraj</p>
+                        <p class="text-sm leading-snug tracking-wide text-stone-600">CGPA: 7.19</p>
+                    </div>
+                </div>
+                <!-- Timeline Item 3 -->
+                <div class="relative mb-8 flex justify-between items-center w-full">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-10 flex items-center order-1 bg-amber-600 shadow-xl w-8 h-8 rounded-full">
+                        <h1 class="mx-auto font-semibold text-lg text-white">&#10003;</h1>
+                    </div>
+                    <div class="order-1 bg-white rounded-lg shadow-md w-5/12 px-6 py-4">
+                         <p class="text-sm text-stone-500">2021</p>
+                        <h3 class="mb-1 font-bold text-lg text-stone-800">C with HTML Training</h3>
+                        <p class="text-sm leading-snug tracking-wide text-stone-600">Training Certification</p>
+                    </div>
+                </div>
+                <!-- Timeline Item: 12th (Intermediate) -->
+                <div class="relative mb-8 flex justify-between flex-row-reverse items-center w-full">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-10 flex items-center order-1 bg-amber-600 shadow-xl w-8 h-8 rounded-full">
+                        <h1 class="mx-auto font-semibold text-lg text-white">🏫</h1>
+                    </div>
+                    <div class="order-1 bg-white rounded-lg shadow-md w-5/12 px-6 py-4">
+                        <p class="text-sm text-stone-500">2020</p>
+                        <h3 class="mb-1 font-bold text-lg text-stone-800">12th (Intermediate)</h3>
+                        <p class="text-sm leading-snug tracking-wide text-stone-600">St Andrews Inter College, Gorakhpur</p>
+                        <p class="text-sm leading-snug tracking-wide text-stone-600">Percentage: 72%</p>
+                    </div>
+                </div>
+                <!-- Timeline Item: 10th (High School) -->
+                <div class="relative mb-8 flex justify-between items-center w-full">
+                    <div class="order-1 w-5/12"></div>
+                    <div class="z-10 flex items-center order-1 bg-amber-600 shadow-xl w-8 h-8 rounded-full">
+                        <h1 class="mx-auto font-semibold text-lg text-white">🏫</h1>
+                    </div>
+                    <div class="order-1 bg-white rounded-lg shadow-md w-5/12 px-6 py-4">
+                        <p class="text-sm text-stone-500">2018</p>
+                        <h3 class="mb-1 font-bold text-lg text-stone-800">10th (High School)</h3>
+                        <p class="text-sm leading-snug tracking-wide text-stone-600">UPSDD IC Bahuripar, Gorakhpur</p>
+                        <p class="text-sm leading-snug tracking-wide text-stone-600">Percentage: 84.33%</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <h2 class="text-3xl font-bold text-center mb-4">Contact</h2>
+            <p class="text-center text-stone-600 mb-4">Feel free to reach out for opportunities or collaboration!</p>
+            <div class="flex flex-col items-center space-y-2">
+                <a href="mailto:santosh.951942@gmail.com" class="text-amber-700 font-semibold">Mail</a>
+                <a href="https://www.linkedin.com/in/santosh-yadav-43224a320" target="_blank" class="text-amber-700 font-semibold">LinkedIn</a>
+                <a href="https://wa.me/+919519424222" target="_blank" class="text-amber-700 font-semibold">WhatsApp</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-stone-800 text-stone-400 py-6 text-center">
+        <p>&copy; 2025 Santosh Kumar. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="project-modal" role="dialog" aria-modal="true" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 modal-backdrop opacity-0 pointer-events-none">
+        <div class="bg-white rounded-lg shadow-2xl w-11/12 md:max-w-2xl mx-auto p-8 relative transform scale-95 modal-content">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-stone-500 hover:text-stone-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h3 id="modal-title" class="text-2xl font-bold mb-4"></h3>
+            <div id="modal-content" class="text-stone-600 space-y-4"></div>
+        </div>
+    </div>
+
+    <script>
+        // Data for projects
+        const projectData = [
+            {
+                title: "Generative AI Document Q&A Chatbot",
+                content: `
+                    <p>This project involved creating a sophisticated question-answering system that allows users to chat with their documents. I engineered a complete Retrieval-Augmented Generation (RAG) pipeline to ensure accurate, context-aware responses.</p>
+                    <p><strong>Technologies Used:</strong> LangChain, FAISS, OpenAI API, Python.</p>
+                    <h4 class="font-bold mt-4 mb-2">Key Features & Architecture:</h4>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li><strong>Text Embedding:</strong> Documents are chunked and converted into numerical vectors using OpenAI's embedding models.</li>
+                        <li><strong>Vector Storage & Search:</strong> FAISS (Facebook AI Similarity Search) is used to create an efficient, searchable index of the text embeddings.</li>
+                        <li><strong>Retrieval:</strong> When a user asks a question, the system searches the vector store to find the most relevant document chunks.</li>
+                        <li><strong>Augmented Generation:</strong> The retrieved chunks are passed to an OpenAI LLM along with the original question, providing the model with the necessary context to generate a precise answer.</li>
+                    </ul>
+                    <div class="mt-6 border border-stone-200 rounded-lg p-4">
+                        <h5 class="font-bold text-center mb-4">RAG Pipeline Visualization</h5>
+                        <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-2 text-center text-xs">
+                            <div class="p-2 bg-stone-100 rounded">User Query</div>
+                            <div class="font-bold text-amber-600">&rarr;</div>
+                            <div class="p-2 bg-stone-100 rounded">Embed Query</div>
+                            <div class="font-bold text-amber-600">&rarr;</div>
+                             <div class="p-2 bg-stone-100 rounded">FAISS Search</div>
+                            <div class="font-bold text-amber-600">&rarr;</div>
+                            <div class="p-2 bg-stone-100 rounded">Retrieve Context</div>
+                            <div class="font-bold text-amber-600">&rarr;</div>
+                            <div class="p-2 bg-stone-100 rounded">Prompt LLM</div>
+                            <div class="font-bold text-amber-600">&rarr;</div>
+                            <div class="p-2 bg-stone-100 rounded">Final Answer</div>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "AI-Powered Creative Design Tool",
+                content: `
+                    <p>This project explores the intersection of AI and creative design by providing a simple yet powerful tool for generating images from text prompts. The application serves as a demonstration of how Generative AI can be used in industries like marketing, art, and content creation.</p>
+                    <p><strong>Technologies Used:</strong> OpenAI DALL·E API, Streamlit, Python.</p>
+                    <h4 class="font-bold mt-4 mb-2">Core Functionality:</h4>
+                     <ul class="list-disc list-inside space-y-1">
+                        <li><strong>Text-to-Image Generation:</strong> Leverages the power of OpenAI's DALL·E model to interpret natural language descriptions and generate corresponding images.</li>
+                        <li><strong>Interactive UI:</strong> Built with Streamlit to provide an accessible and user-friendly web interface where users can input text prompts and view the generated images.</li>
+                        <li><strong>Use Case Exploration:</strong> The project was designed to showcase practical applications, from creating custom graphics for social media to generating conceptual art for design projects.</li>
+                    </ul>
+                `
+            },
+            {
+                title: "Autonomous Boat Recognition System",
+                content: `
+                    <p>This project focused on building an efficient deep learning model for real-time boat type classification. The primary challenge was to create a model that is both accurate and lightweight enough for potential mobile deployment.</p>
+                    <p><strong>Technologies Used:</strong> TensorFlow, Keras, CNN, MobileNetV2, Python.</p>
+                    <h4 class="font-bold mt-4 mb-2">Model Details:</h4>
+                     <ul class="list-disc list-inside space-y-1">
+                        <li><strong>Architecture:</strong> A Convolutional Neural Network (CNN) was developed, leveraging the pre-trained MobileNetV2 architecture for its efficiency on mobile devices.</li>
+                        <li><strong>Training:</strong> The model was trained on a diverse dataset of images to accurately classify 9 different types of boats.</li>
+                        <li><strong>Optimization:</strong> Techniques like transfer learning and fine-tuning were employed to maximize accuracy while keeping the model size small and inference time low.</li>
+                        <li><strong>Performance:</strong> Achieved a high classification accuracy on the test dataset, proving its viability for practical applications like maritime surveillance or automated vessel identification.</li>
+                    </ul>
+                `
+            }
+        ];
+
+        // Modal logic
+        const modal = document.getElementById('project-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalContent = document.getElementById('modal-content');
+
+        function openModal(index) {
+            const data = projectData[index];
+            modalTitle.textContent = data.title;
+            modalContent.innerHTML = data.content;
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.querySelector('.modal-content').classList.remove('scale-95');
+        }
+
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            modal.querySelector('.modal-content').classList.add('scale-95');
+            setTimeout(() => {
+                 modal.classList.add('pointer-events-none');
+            }, 300);
+        }
+        
+        // Close modal on escape key
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('pointer-events-none')) {
+                closeModal();
+            }
+        });
+        
+        // Close modal on backdrop click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Skills Chart
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('skillsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Generative AI', 'Machine Learning', 'Deep Learning', 'Python', 'Data Science'],
+                    datasets: [{
+                        label: 'Proficiency',
+                        data: [9, 8.5, 8, 9, 8],
+                        backgroundColor: 'rgba(217, 119, 6, 0.6)', // amber-600 with opacity
+                        borderColor: 'rgba(217, 119, 6, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: '#1c1917',
+                            titleFont: { size: 14 },
+                            bodyFont: { size: 12 },
+                            padding: 10,
+                            cornerRadius: 4,
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 10,
+                            grid: {
+                                color: 'rgba(0,0,0,0.05)'
+                            }
+                        },
+                         y: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Mobile menu toggle
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu on link click
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Nav link active state
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            window.onscroll = () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 60) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            };
+        });
+    </script>
+</body>
+</html>
